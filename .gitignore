@@ -10,8 +10,6 @@ vendor/
 #BD CON
 db_connection.php
 stripe_keys.php
-cargar_carrito.js
-carrito.js
 
 
 # Logs

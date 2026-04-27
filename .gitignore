@@ -10,7 +10,7 @@ vendor/
 #BD CON
 db_connection.php
 stripe_keys.php
-
+pagina_pago_tarjeta.php
 
 # Logs
 *.log

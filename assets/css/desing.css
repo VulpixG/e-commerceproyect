@@ -1,0 +1,720 @@
+body {
+    background-color: rgb(226, 218, 218);
+    
+  }
+.svg-frame {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .svg-frame svg {
+    position: absolute;
+    transition: .5s;
+    z-index: calc(1 - (0.2 * var(--j)));
+    transform-origin: center;
+    width: 344px;
+    height: 344px;
+    fill: none;
+  }
+  
+  .svg-frame:hover svg {
+    transform: rotate(-80deg) skew(30deg) translateX(calc(45px * var(--i))) translateY(calc(-35px * var(--i)));
+  }
+  
+  .svg-frame svg #center {
+    transition: .5s;
+    transform-origin: center;
+  }
+  
+  .svg-frame:hover svg #center {
+    transform: rotate(-30deg) translateX(45px) translateY(-3px);
+  }
+  
+  #out2 {
+    animation: rotate16 7s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+  
+  #out3 {
+    animation: rotate16 3s ease-in-out infinite alternate;
+    transform-origin: center;
+    stroke: rgb(247, 175, 81);
+  }
+  
+  #inner3,
+  #inner1 {
+    animation: rotate16 4s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+  
+  #center1 {
+    fill: rgb(248, 7, 7);
+    animation: rotate16 2s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+  
+  @keyframes rotate16 {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+/*TARJETAS*/
+.myCard {
+  background-color: transparent;
+  width: 190px;
+  height: 254px;
+  perspective: 1000px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.innerCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.myCard:hover .innerCard {
+  transform: rotateY(180deg);
+}
+
+.frontSide,
+.backSide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+.frontSide,
+.frontSide::before {
+  background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
+}
+
+.backSide,
+.backSide::before {
+  background-image: url("back2.jpg");
+}
+
+.backSide {
+  transform: rotateY(180deg);
+}
+
+.frontSide::before,
+.backSide::before {
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  content: '';
+  width: 110%;
+  height: 110%;
+  position: absolute;
+  z-index: -1;
+  border-radius: 1em;
+  filter: blur(20px);
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+  /*SOCIALES*/
+  .card2 {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+  }
+  
+  /* for all social containers*/
+  .socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: .3s;
+  }
+  /* instagram*/
+  .containerOne:hover {
+    background-color: #d62976;
+    transition-duration: .3s;
+  }
+  /* twitter*/
+  .containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: .3s;
+  }
+  /* linkdin*/
+  .containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: .3s;
+  }
+  /* Whatsapp*/
+  .containerFour:hover {
+    background-color: #128C7E;
+    transition-duration: .3s;
+  }
+  
+  .socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: .3s;
+  }
+  
+  .socialSvg {
+    width: 17px;
+  }
+  
+  .socialSvg path {
+    fill: rgb(255, 255, 255);
+  }
+  
+  .socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+  }
+  
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+/*OTRAS CARTAS*/
+.flip-card {
+  background-color: transparent;
+  width: 190px;
+  height: 254px;
+  perspective: 1000px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  /*box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);*/
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+}
+
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  background-image: url("back2.jpg");
+  color: white;
+  transform: rotateY(180deg);
+}
+/*Ultimas cartas*/
+.card3 {
+  position: relative;
+  width: 192px;
+  height: 256px;
+  background: mediumturquoise;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.card3::after {
+  position: absolute;
+  content: "";
+  width: 15%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: lightblue;
+  transition: all 0.5s;
+  background-image: url("back2.jpg");
+}
+
+.card3::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.card3::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100%  0 15px;
+}
+
+.card3:hover::before,
+.card3:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.card3:hover:after {
+  content: "DETALLES";
+}
+/*Designed by*/
+.cardContainer {
+  width: 200px;
+  height: 250px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition-duration: .5s;
+  cursor: pointer;
+}
+
+.profileDiv {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(24, 24, 24);
+  transition-duration: .5s;
+  color: rgb(155, 155, 155);
+  font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.cardContainer:hover .profileDiv {
+  transform: translateX(-25%) translateY(-20%);
+  transition-duration: .5s;
+}
+
+.infoDiv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+  z-index: 1;
+}
+
+.nameDiv {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: aliceblue;
+  font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  gap: 2px;
+}
+
+.name {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+}
+
+.role {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(48, 48, 48);
+  margin-bottom: 5px;
+}
+
+.socialDiv {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(14, 14, 14);
+  gap: 25px;
+}
+
+.infoDiv a {
+  width: 50%;
+}
+
+.socials {
+  width: 100%;
+  fill: rgb(14, 14, 14);
+}
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+/**********************************PARA EL INICIO DE SESION**********************************/
+.input-container {
+  position: absolute;
+}
+
+.input {
+  padding: 10px;
+  height: 45px;
+  border: 2px solid #ffaa2a;
+  border-top: none;
+  border-bottom: none;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  box-shadow: 7px 7px 0px 0px #ffaa2a;
+  transition: all 0.5s;
+}
+
+.input:focus {
+  box-shadow: none;
+  transition: all 0.5s;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #ffaa2a;
+  transition: all 0.5s;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.input-container .topline {
+  position: absolute;
+  content: "";
+  background-color: #ffaa2a;
+  width: 0%;
+  height: 2px;
+  right: 0;
+  top: 0;
+  transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .topline {
+  width: 35%;
+  transition: all 0.5s;
+}
+
+.input-container .underline {
+  position: absolute;
+  content: "";
+  background-color: #ffaa2a;
+  width: 0%;
+  height: 2px;
+  right: 0;
+  bottom: 0;
+  transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .underline {
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus ~ .label {
+  top: -10px;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.custom-placeholder::placeholder {
+  color: white; /* Cambiar el color aquí al deseado */
+}
+/********************************BOTON INICIO DE SESION********************************/
+/* === removing default button style ===*/
+.buttonD {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* button styling */
+.buttonD {
+  --border-right: 6px;
+  --text-stroke-color: rgba(0, 0, 0, 0.6);
+  --animation-color: #8437ff;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.buttonD:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+.form {
+  background-color: #fff;
+  display: block;
+  padding: 1rem;
+  max-width: 350px;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input, .form button {
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
+}
+
+.input-container input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.submit {
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: #4F46E5;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.signup-link {
+  color: #6B7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.signup-link a {
+  text-decoration: underline;
+}
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 70%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
